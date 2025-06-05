@@ -1,0 +1,400 @@
+    html {
+        font-size: 62.5%;
+    }
+
+
+    body {
+        display: grid;
+        grid-template-areas:
+            "header header header header"
+            "hero hero hero hero"
+            "about about about about"
+            "tools tools tools tools"
+            "skill skill skill skill"
+            "main main main main"
+            "footer footer footer footer";
+
+        grid-template-columns: repeat(4, 1fr);
+        font-size: 1.6rem;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+    }
+
+
+    main {
+        grid-area: main;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 60px 0;
+    }
+
+
+
+    /* HEADER */
+
+    .header {
+        font-family: "Montserrat", sans-serif;
+        grid-area: header;
+        background: linear-gradient(rgba(255, 166, 0, 0.582), rgba(0, 0, 255, 0.637));
+    }
+
+    .header .header-container {
+        display: flex;
+        padding: 20px 40px;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 75px;
+    }
+
+    .header h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        transition: 0.3s;
+    }
+
+    .header a:hover h1 {
+        color: coral;
+
+
+    }
+
+
+    /* HERO */
+
+    .hero {
+        font-family: "Montserrat", sans-serif;
+        background-image: url('../images/Melhores-Livros-JavaScript-Para-Desenvolvedores.jpg');
+        /* ou como preferir */
+        background-size: cover;
+        background-position: center;
+        height: 470px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+
+
+
+    .hero h2 {
+        font-weight: 4rem;
+        font-weight: 500;
+        text-transform: uppercase;
+
+    }
+
+    .hero::after {
+        content: url('../images/seta_preta.png');
+        height: 35px;
+        bottom: 40px;
+        position: absolute;
+        animation: downarrow 0.6s infinite alternate ease-in-out;
+    }
+
+
+    @media (max-width: 425px) {
+        .hero h2 {
+            font-size: 2.4rem;
+        }
+    }
+
+    @-webkit-keyframes downarrow {
+        0% {
+            -webkit-transform: translateY(0);
+            opacity: 0.4;
+        }
+
+        100% {
+            -webkit-transform: translateY(0.4em);
+            opacity: 0.9;
+        }
+    }
+
+    @keyframes downarrow {
+        0% {
+            transform: translateY(0);
+            opacity: 0.4;
+        }
+
+        100% {
+            transform: translateY(0.4em);
+            opacity: 0.9;
+        }
+    }
+
+
+    /* ABOUT */
+
+    .about {
+        display: grid;
+        font-family: "Montserrat", sans-serif;
+        grid-template-columns: 1fr 1fr;
+        background: linear-gradient(rgba(255, 166, 0, 0.582), rgba(0, 0, 255, 0.637));
+        max-width: var(--max-width-size);
+        margin: 0 auto;
+        gap: 10px;
+        /* espaçamento entre colunas */
+        padding: 20px;
+        /* um pouco de espaçamento interno */
+    }
+
+    .about .image {
+        height: 100%;
+        width: 100%;
+    }
+
+    /* Itens de texto centralizados */
+    .about .item {
+        padding: 2%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+    }
+
+    .about .item h3 {
+        font-weight: 700;
+        font-size: 4rem;
+        color: black;
+
+    }
+
+    .about .item p {
+        font-weight: 400;
+        font-size: 1.8rem;
+        margin: 15px 0;
+
+
+    }
+
+    .about .image.right {
+        background: url('../images/terno.jpg') center center no-repeat;
+        background-size: cover;
+        border-radius: 50%;
+        border: 4px solid #00bcd4;
+        width: 350px;
+        height: 350px;
+
+
+    }
+
+    .about .image.left {
+        background: url('../images/foto.jpg') center center no-repeat;
+        background-size: cover;
+        border-radius: 50%;
+        border: 4px solid #00bcd4;
+        width: 350px;
+        height: 350px;
+    }
+
+    /* Imagens about responsivas */
+    .about .image.right,
+    .about .image.left {
+        width: 350px;
+        height: 350px;
+        border-radius: 50%;
+        justify-self: center;
+        align-self: center;
+        border: 4px solid #00bcd4;
+        background-size: cover;
+        background-position: center;
+        aspect-ratio: 1 / 1;
+        margin: 0 auto;
+        /* centraliza horizontalmente */
+    }
+
+    /* Media query para mobile */
+    @media (max-width: 768px) {
+        .about {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            gap: 10px;
+            /* espaçamento maior entre os blocos */
+        }
+
+        .about .image.right,
+        .about .image.left {
+            max-width: 200px;
+            /* reduz as imagens no mobile */
+            height: auto;
+            margin: 0;
+            /* espaço vertical */
+        }
+
+        .about .image.right {
+            order: -1;
+            /* Coloca as imagens acima dos textos */
+        }
+
+
+        .about .item {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            padding: 0;
+        }
+    }
+
+    article {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+        padding: 2rem;
+        box-sizing: border-box;
+    }
+
+    /* TOOLS */
+
+    .tools {
+        font-family: "Montserrat", sans-serif;
+        grid-area: tools;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .tools .tool {
+        padding: 70px 20px;
+        text-align: center;
+    }
+
+    .tools .tool img {
+        width: 250px;
+        margin-bottom: 30px;
+        border-radius: 50%;
+        border: 4px solid #00bcd4;
+    }
+
+    .tools .tool h3 {
+        font-size: 1.8rem;
+        font-weight: 700;
+    }
+
+    .tools .tool p {
+        font-size: 2rem;
+        font-weight: 400;
+        max-width: 400px;
+        margin: 20px auto 0;
+        line-height: 25px;
+    }
+
+    .tools .tool:nth-child(1),
+    .tools .tool:nth-child(2) {
+        background: linear-gradient(rgba(255, 166, 0, 0.582), rgba(0, 0, 255, 0.637));
+        border: 4px solid black;
+    }
+
+    @media (max-width: 425px) {
+        .tools {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* SKILLS */
+
+    .skills {
+        grid-area: skills;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .skills img {
+        width: 100%;
+        height: 100%;
+        transition: 0.3s;
+        border: 4px solid rgba(255, 255, 0, 0);
+    }
+
+    .skills a:hover img {
+        opacity: 0.8;
+
+    }
+
+    @media (max-width: 768px) {
+        .skills {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
+
+    }
+
+    @media (max-width: 425px) {
+        .skills {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(4, 1fr);
+
+        }
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+        font-family: "Montserrat", sans-serif;
+        grid-area: footer;
+        display: flex;
+        background: linear-gradient(rgba(255, 166, 0, 0.582), rgba(0, 0, 255, 0.637));
+        flex-direction: column;
+        text-align: center;
+        padding: 100px 0;
+    }
+
+    .footer .imagem img {
+        width: 180px;
+        border-radius: 50%;
+        border: 4px solid #00bcd4;
+        margin-bottom: 20px
+    }
+
+    .footer h4 {
+        font-weight: 700;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .footer nav {
+        margin: 50px 0;
+    }
+
+    .footer nav ul {
+        display: flex;
+        justify-content: center;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .footer nav ul li a {
+        font-weight: 500;
+        font-size: 2rem;
+        margin: 20px;
+        transition: 0.3s;
+    }
+
+    .footer nav ul li a:hover {
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .footer .social i {
+        font-size: 2rem;
+        transition: 0.3s;
+    }
+
+    .footer .social a {
+        margin: 20px;
+    }
+
+
+    .footer .social i:hover {
+        color: #fff;
+
+    }
+
+    footer a{
+        font-weight: 700;
+        font-size: 20px;
+         margin: 50px;  
+    }
